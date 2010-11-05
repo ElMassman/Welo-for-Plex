@@ -1,0 +1,208 @@
+﻿<window id="502">
+	<defaultcontrol always="true">3007</defaultcontrol>
+	<views>3000,3007,3008</views>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+		<control type="label">
+			<include>Small_List_Heading_Details_1</include>
+			<label>2</label>
+		</control>
+		<include>Background_Small_Diffuse</include>
+		<control type="label">
+			<include>Small_List_Heading_Details_2</include>
+			<label>2</label>
+		</control>
+		<control type="group">
+			<include>Background_Small_Flick</include>
+			<visible>Control.IsVisible(3008)</visible>
+		</control>
+		<control type="image">
+			<include>Left_Right_Slide</include>
+			<visible>Container.Content(songs)</visible>
+			<posx>354</posx>
+			<posy>232</posy>
+			<width>802</width>
+			<height>250</height>
+			<texture border="50,10,36,28">Views/List/List_Back.png</texture>
+			<animation type="Conditional" condition="Container.Content(songs)" reversible="false">
+				<effect type="slide" start="-48,0" end="0,0" time="400"/>
+				<effect type="zoom" start="20,100" end="100,100" center="auto" time="400"/>
+			</animation>
+		</control>
+		<include>Viewtype_Common_List</include>
+		<include>Viewtype_Small_Music_Cover</include>
+		<include>Viewtype_Small_Music_List</include>
+		<control type="image">
+			<include>Left_Right_Slide</include>
+			<visible>Container.Content(songs)</visible>
+			<posx>176</posx>
+			<posy>232</posy>
+			<width>232</width>
+			<height>267</height>
+			<texture background="true" fallback="No_Image.png">$INFO[ListItem.Icon]</texture>
+			<bordertexture border="35">Common/Shadow.png</bordertexture>
+			<bordersize>0,0,0,35</bordersize>
+			<aspectratio>stretch</aspectratio>
+			<animation effect="slide" start="348,0" end="0,0" time="400" reversible="false" condition="Container.Content(songs)">Conditional</animation>
+		</control>
+		<control type="label">
+			<include>Left_Right_Slide</include>
+			<visible>Container.Content(songs)</visible>
+			<posx>1112</posx>
+			<posy>232</posy>
+			<width>222</width>
+			<height>34</height>
+			<align>center</align>
+			<font>Font_Big_Caps_14</font>
+			<textcolor>Black</textcolor>
+			<label>&#9660; $LOCALIZE[182]</label>
+			<animation effect="rotate" center="1112,232" end="-90" time="0" condition="true">Conditional</animation>
+			<animation effect="slide" start="0,348" end="0,0" time="400" delay="40" reversible="false" condition="Container.Content(songs)">Conditional</animation>
+		</control>
+		<include>Main_Menu</include>
+		<control type="group" id="3001">
+			<visible>!Skin.HasSetting(KioskMode)</visible>
+			<animation effect="slide" start="0,0" end="160,-126" time="0" condition="stringcompare(Container.ViewMode,$LOCALIZE[50022])">Conditional</animation>
+			<animation type="Conditional" condition="!Controlgroup(3001).HasFocus()">
+				<effect type="slide" start="0,0" end="0,30" time="200" />
+				<effect type="fade" start="100" end="0" time="100" />
+			</animation>
+			<animation effect="fade" start="0" end="100" time="800">WindowOpen</animation>
+			<control type="grouplist" id="600">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1</width>
+				<height>1</height>
+				<onleft>600</onleft>
+				<onright>600</onright>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<orientation>horizontal</orientation>
+				<control type="button" id="2">
+					<label>-</label>
+				</control>
+				<control type="button" id="3">
+					<label>-</label>
+				</control>
+				<control type="togglebutton" id="4">
+					<label>&#9660;</label>
+					<altlabel>&#9650;</altlabel>
+				</control>
+				<control type="button" id="5"/>
+				<control type="button" id="8"/>
+				<control type="radiobutton" id="16"/>
+				<control type="button" id="17"/>
+				<control type="radiobutton" id="19"/>
+				<control type="togglebutton" id="7001">
+					<onclick>Skin.Setbool(HideMusicStars)</onclick>
+					<altclick>Skin.Reset(HideMusicStars)</altclick>
+					<selected>Skin.HasSetting(HideMusicStars)</selected>
+					<visible>Control.IsVisible(3008)</visible>
+				</control>
+				<control type="togglebutton" id="7002">
+					<onclick>Skin.Setbool(HideSongRuntimes)</onclick>
+					<altclick>Skin.Reset(HideSongRuntimes)</altclick>
+					<selected>Skin.HasSetting(HideSongRuntimes)</selected>
+					<visible>Control.IsVisible(3008)</visible>
+				</control>
+			</control>
+			<control type="grouplist">
+				<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+				<animation effect="fade" start="100" end="40" time="200" condition="!Controlgroup(600).HasFocus()">Conditional</animation>
+				<posx>12</posx>
+				<posy>132</posy>
+				<height>20</height>
+				<width>1280</width>
+				<itemgap>12</itemgap>
+				<align>left</align>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(2)">Conditional</animation>
+					<label>$INFO[Control.GetLabel(2)]</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(3)">Conditional</animation>
+					<label>$INFO[Control.GetLabel(3)]</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(4)">Conditional</animation>
+					<label>$INFO[Control.GetLabel(4)]</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(5)">Conditional</animation>
+					<label>$LOCALIZE[50028]: $LOCALIZE[14022]</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(8)">Conditional</animation>
+					<label>137</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(16)">Conditional</animation>
+					<label>589</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(17)">Conditional</animation>
+					<label>16002</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(19)">Conditional</animation>
+					<label>587</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7001)">Conditional</animation>
+					<label>Stars</label>
+					<visible>Control.IsVisible(3008)</visible>
+				</control>
+				<control type="image">
+					<width>10</width>
+					<height>15</height>
+					<texture>Common/Button_Off.png</texture>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7001)">Conditional</animation>
+					<visible>Skin.HasSetting(HideMusicStars)</visible>
+					<visible>Control.IsVisible(3008)</visible>
+				</control>
+				<control type="image">
+					<width>10</width>
+					<height>15</height>
+					<texture>Common/Button_On.png</texture>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7001)">Conditional</animation>
+					<visible>!Skin.HasSetting(HideMusicStars)</visible>
+					<visible>Control.IsVisible(3008)</visible>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7002)">Conditional</animation>
+					<label>Runtime</label>
+					<visible>Control.IsVisible(3008)</visible>
+				</control>
+				<control type="image">
+					<width>10</width>
+					<height>15</height>
+					<texture>Common/Button_Off.png</texture>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7002)">Conditional</animation>
+					<visible>Skin.HasSetting(HideSongRuntimes)</visible>
+					<visible>Control.IsVisible(3008)</visible>
+				</control>
+				<control type="image">
+					<width>10</width>
+					<height>15</height>
+					<texture>Common/Button_On.png</texture>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7002)">Conditional</animation>
+					<visible>!Skin.HasSetting(HideSongRuntimes)</visible>
+					<visible>Control.IsVisible(3008)</visible>
+				</control>
+			</control>
+		</control>
+		<include>Global_Time</include>
+		<include condition="Skin.HasSetting(DebugGrid)">Object_DebugGrid</include>
+	</controls>
+</window>

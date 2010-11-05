@@ -1,0 +1,263 @@
+<includes>
+	<include name="Viewtype_Small_Episode_List">
+		<control type="group">
+			<visible>Control.IsVisible(3006)</visible>
+			<include>Background_Small_Flick</include>
+			<control type="label">
+				<include>Small_List_Heading_Details_1</include>
+				<label>$LOCALIZE[50023]</label>
+			</control>
+			<include>Background_Small_Diffuse</include>
+			<control type="label">
+				<include>Small_List_Heading_Details_2</include>
+				<label>$LOCALIZE[50023]</label>
+			</control>
+			<control type="image">
+				<include>Fullscreen_Dimensions</include>
+				<include>Light_Fade</include>
+				<texture>Views/List/Small_List_Light.png</texture>
+			</control>
+			<control type="group">
+				<include>Left_Right_Slide</include>
+				<control type="image">
+					<animation effect="slide" end="100,0" condition="Container.Content(episodes)">Conditional</animation>
+					<include>Fullscreen_Dimensions</include>
+					<texture>Views/List/Small_List_Back.png</texture>
+				</control>
+				<control type="image">
+					<animation effect="slide" end="100,0" condition="Container.Content(episodes)">Conditional</animation>
+					<posx>358</posx>
+					<posy>168</posy>
+					<width>834</width>
+					<height>314</height>
+					<texture border="50,10,36,28">Views/List/List_Back.png</texture>
+				</control>
+				<control type="list" id="3006">
+					<visible>Container.Content(episodes)</visible>
+					<posx>508</posx>
+					<posy>182</posy>
+					<height>270</height>
+					<width>798</width>
+					<onup>3006</onup>
+					<ondown>3006</ondown>
+					<onleft>300</onleft>
+					<onright>60</onright>
+					<scrolltime>0</scrolltime>
+					<viewtype label="50030">list</viewtype>
+					<orientation>vertical</orientation>
+					<pagecontrol>60</pagecontrol>
+					<itemlayout width="798" height="22">
+						<control type="label">
+							<posx>36</posx>
+							<posy>1</posy>
+							<width>40</width>
+							<height>20</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Episode].</label>
+						</control>
+						<control type="label">
+							<posx>46</posx>
+							<posy>1</posy>
+							<width>416</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>Black</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>Skin.HasSetting(HideStars) + Skin.HasSetting(HideRuntimes)</visible>
+						</control>
+						<control type="label">
+							<posx>46</posx>
+							<posy>1</posy>
+							<width>416</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>Black</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>[!Skin.HasSetting(HideStars) + Skin.HasSetting(HideRuntimes)] | [Skin.HasSetting(HideStars) + !Skin.HasSetting(HideRuntimes)]</visible>
+						</control>
+						<control type="label">
+							<posx>46</posx>
+							<posy>1</posy>
+							<width>416</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>Black</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>!Skin.HasSetting(HideStars) + !Skin.HasSetting(HideRuntimes)</visible>
+						</control>
+						<control type="image">
+							<posx>476</posx>
+							<posy>0</posy>
+							<width>26</width>
+							<height>24</height>
+							<texture>$INFO[ListItem.Overlay]</texture>
+							<animation effect="slide" start="0,0" end="82,0" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
+							<animation effect="slide" start="0,0" end="108,0" condition="Skin.HasSetting(HideStars)">Conditional</animation>
+							<visible>!Skin.HasSetting(HideTicks)</visible>
+						</control>
+						<control type="image">
+							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
+							<posx>514</posx>
+							<include>List_StarRatings</include>
+							<texture>$INFO[ListItem.Rating,Star_Ratings/,.png]</texture>
+							<animation effect="slide" start="0,0" end="82" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
+							<visible>!Skin.HasSetting(HideStars)</visible>
+						</control>
+						<control type="image">
+							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
+							<posx>514</posx>
+							<include>List_StarRatings</include>
+							<texture>Star_Ratings/NA.png</texture>
+							<animation effect="slide" start="0,0" end="82" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
+							<visible>IsEmpty(ListItem.Rating) + !Skin.HasSetting(HideStars)</visible>
+						</control>
+						<control type="label">
+							<posx>694</posx>
+							<posy>2</posy>
+							<width>90</width>
+							<height>20</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>Black</textcolor>
+							<label>$INFO[ListItem.Duration,, mins]</label>
+							<visible>!Skin.HasSetting(HideRuntimes)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout width="798" height="24">
+						<control type="image">
+							<posx>0</posx>
+							<posy>1</posy>
+							<width>710</width>
+							<height>24</height>
+							<texture>Views/List/Small_List_Focus.png</texture>
+							<animation effect="fade" start="100" end="80" condition="Control.HasFocus(60) | Control.HasFocus(61)">Conditional</animation>
+							<animation type="Focus" condition="Container.OnNext" reversible="false">
+								<effect type="fade" start="76" end="100" time="200"/>
+								<effect type="slide" start="0,-24" end="0,0" time="200" tween="back" easing="out"/>
+							</animation>
+							<animation type="Focus" condition="Container.OnPrevious" reversible="false">
+								<effect type="fade" start="76" end="100" time="200"/>
+								<effect type="slide" start="0,24" end="0,0" time="200" tween="back" easing="out"/>
+							</animation>
+						</control>
+						<control type="label">
+							<posx>46</posx>
+							<posy>2</posy>
+							<width>416</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>Skin.HasSetting(HideStars) + Skin.HasSetting(HideRuntimes)</visible>
+						</control>
+						<control type="label">
+							<posx>46</posx>
+							<posy>2</posy>
+							<width>416</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>[!Skin.HasSetting(HideStars) + Skin.HasSetting(HideRuntimes)] | [Skin.HasSetting(HideStars) + !Skin.HasSetting(HideRuntimes)]</visible>
+						</control>
+						<control type="label">
+							<posx>46</posx>
+							<posy>2</posy>
+							<width>416</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>!Skin.HasSetting(HideStars) + !Skin.HasSetting(HideRuntimes)</visible>
+						</control>
+						<control type="label">
+							<posx>36</posx>
+							<posy>2</posy>
+							<width>40</width>
+							<height>20</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Episode].</label>
+						</control>
+						<control type="image">
+							<posx>476</posx>
+							<posy>0</posy>
+							<width>26</width>
+							<height>24</height>
+							<texture>$INFO[ListItem.Overlay]</texture>
+							<animation effect="slide" start="0,0" end="82,0" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
+							<animation effect="slide" start="0,0" end="108,0" condition="Skin.HasSetting(HideStars)">Conditional</animation>
+							<visible>!Skin.HasSetting(HideTicks)</visible>
+						</control>
+						<control type="image">
+							<posx>514</posx>
+							<include>List_StarRatings</include>
+							<texture>$INFO[ListItem.Rating,Star_Ratings/,.png]</texture>
+							<animation effect="slide" start="0,0" end="82" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
+							<visible>!Skin.HasSetting(HideStars)</visible>
+						</control>
+						<control type="image">
+							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
+							<posx>514</posx>
+							<include>List_StarRatings</include>
+							<texture>Star_Ratings/NA.png</texture>
+							<animation effect="slide" start="0,0" end="82" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
+							<visible>IsEmpty(ListItem.Rating) + !Skin.HasSetting(HideStars)</visible>
+						</control>
+						<control type="label">
+							<posx>694</posx>
+							<posy>2</posy>
+							<width>90</width>
+							<height>20</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Duration,, mins]</label>
+							<visible>!Skin.HasSetting(HideRuntimes)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="image">
+					<posx>20</posx>
+					<posy>172</posy>
+					<width>488</width>
+					<height>325</height>
+					<texture fallback="No_Image.png">$INFO[ListItem.Icon]</texture>
+					<bordertexture border="35">Common/Shadow.png</bordertexture>
+					<bordersize>0,0,0,35</bordersize>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+				</control>
+				<control type="scrollbar" id="60">
+					<animation effect="slide" end="100,0" condition="Container.Content(episodes)">Conditional</animation>
+					<posx>1135</posx>
+					<posy>185</posy>
+					<width>5</width>
+					<height>265</height>
+					<visible allowhiddenfocus="true">Control.IsVisible(3006) + Control.HasFocus(60)</visible>
+					<texturesliderbackground>Views/Scroll_Back.png</texturesliderbackground>
+					<texturesliderbarfocus>Views/Scroll_Bar_Focus.png</texturesliderbarfocus>
+					<texturesliderbar>Views/Scroll_Bar.png</texturesliderbar>
+					<onup>3000</onup>
+					<onleft>3000</onleft>
+					<ondown>3000</ondown>
+					<onright>61</onright>
+					<showonepage>true</showonepage>
+					<orientation>vertical</orientation>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

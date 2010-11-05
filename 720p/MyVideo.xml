@@ -1,0 +1,197 @@
+<window id="6">
+	<defaultcontrol always="true">3000</defaultcontrol>
+	<views>3000,3002,3003,3004,3005,3006,3009</views>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+		<include>Viewtype_Common_List</include>
+		<include>Viewtype_Small_Video_List</include>
+		<include>Viewtype_Big_Video_List</include>
+		<include>Viewtype_Small_Video_Poster</include>
+		<include>Viewtype_Small_Video_Wall</include>
+		<include>Viewtype_Small_Episode_List</include>
+		<include>Video_Details</include>
+		<include>Main_Menu</include>
+		<control type="group" id="3001">
+			<visible>!Skin.HasSetting(KioskMode)</visible>
+			<animation effect="slide" start="0,0" end="0,-126" time="0" condition="Control.IsVisible(3002)">Conditional</animation>
+			<animation type="Conditional" condition="!Controlgroup(3001).HasFocus()">
+				<effect type="slide" start="0,0" end="0,30" time="200" />
+				<effect type="fade" start="100" end="0" time="100" />
+			</animation>
+			<animation effect="fade" start="0" end="100" time="800">WindowOpen</animation>
+			<control type="grouplist" id="600">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1</width>
+				<height>1</height>
+				<onleft>600</onleft>
+				<onright>600</onright>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<orientation>horizontal</orientation>
+				<control type="button" id="2">
+					<label>Next</label>
+					<onclick>Container.NextViewMode</onclick>
+				</control>
+				<control type="button" id="3">
+					<label>-</label>
+				</control>
+				<control type="togglebutton" id="4">
+					<label>&#9660;</label>
+					<altlabel>&#9650;</altlabel>
+				</control>
+				<control type="button" id="5"/>
+				<control type="togglebutton" id="14">
+					<label>16100</label>
+					<altlabel>16101</altlabel>
+				</control>
+				<control type="button" id="8"/>
+				<control type="radiobutton" id="19"/>
+				<control type="togglebutton" id="7000">
+					<onclick>Skin.Setbool(HideTicks)</onclick>
+					<altclick>Skin.Reset(HideTicks)</altclick>
+					<selected>Skin.HasSetting(HideTicks)</selected>
+				</control>
+				<control type="togglebutton" id="7001">
+					<onclick>Skin.Setbool(HideStars)</onclick>
+					<altclick>Skin.Reset(HideStars)</altclick>
+					<selected>Skin.HasSetting(HideStars)</selected>
+					<visible>[Control.IsVisible(3002) | Control.IsVisible(3006) | Control.IsVisible(3009)]</visible>
+				</control>
+				<control type="togglebutton" id="7002">
+					<onclick>Skin.Setbool(HideRuntimes)</onclick>
+					<altclick>Skin.Reset(HideRuntimes)</altclick>
+					<selected>Skin.HasSetting(HideRuntimes)</selected>
+					<visible>[Control.IsVisible(3002) | Control.IsVisible(3006) | Control.IsVisible(3009)] + [Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+			</control>
+			<control type="grouplist">
+				<posx>12</posx>
+				<posy>132</posy>
+				<height>20</height>
+				<width>1280</width>
+				<itemgap>12</itemgap>
+				<align>left</align>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width min="4" max="200">auto</width>
+					<height>20</height>
+					<aligny>center</aligny>
+					<font>Font_Slim_24</font>
+					<textcolor>Clear</textcolor>
+					<label>><label>$INFO[Container.FirstTitle]</label></label>
+				<visible>Control.IsVisible(3002) + Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<width min="4" max="200">auto</width>
+				<height>20</height>
+				<aligny>center</aligny>
+				<font>Font_Slim_24</font>
+				<textcolor>Clear</textcolor>
+				<label><label>$INFO[Container.FirstTitle]</label>  </label>
+				<visible>Control.IsVisible(3002) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(2)">Conditional</animation>
+				<label>$INFO[Control.GetLabel(2)]</label>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(3)">Conditional</animation>
+				<label>$INFO[Control.GetLabel(3)]</label>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(4)">Conditional</animation>
+				<label>$INFO[Control.GetLabel(4)]</label>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(5)">Conditional</animation>
+				<label>$LOCALIZE[50028]: $LOCALIZE[14022]</label>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(14)">Conditional</animation>
+				<label>$INFO[Control.GetLabel(14)]</label>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(8)">Conditional</animation>
+				<label>137</label>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(19)">Conditional</animation>
+				<label>587</label>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7000)">Conditional</animation>
+				<label>Watched</label>
+			</control>
+			<control type="image">
+				<width>10</width>
+				<height>15</height>
+				<texture>Common/Button_Off.png</texture>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7000)">Conditional</animation>
+				<visible>Skin.HasSetting(HideTicks)</visible>
+			</control>
+			<control type="image">
+				<width>10</width>
+				<height>15</height>
+				<texture>Common/Button_On.png</texture>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7000)">Conditional</animation>
+				<visible>!Skin.HasSetting(HideTicks)</visible>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7001)">Conditional</animation>
+				<label>Stars</label>
+				<visible>[Control.IsVisible(3002) | Control.IsVisible(3006) | Control.IsVisible(3009)]</visible>
+			</control>
+			<control type="image">
+				<width>10</width>
+				<height>15</height>
+				<texture>Common/Button_Off.png</texture>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7001)">Conditional</animation>
+				<visible>Skin.HasSetting(HideStars)</visible>
+				<visible>[Control.IsVisible(3002) | Control.IsVisible(3006) | Control.IsVisible(3009)]</visible>
+			</control>
+			<control type="image">
+				<width>10</width>
+				<height>15</height>
+				<texture>Common/Button_On.png</texture>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7001)">Conditional</animation>
+				<visible>!Skin.HasSetting(HideStars)</visible>
+				<visible>[Control.IsVisible(3002) | Control.IsVisible(3006) | Control.IsVisible(3009)]</visible>
+			</control>
+			<control type="label">
+				<include>Sub_Titles</include>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7002)">Conditional</animation>
+				<label>Runtime</label>
+				<visible>[Control.IsVisible(3002) | Control.IsVisible(3006) | Control.IsVisible(3009)] + [Container.Content(movies) | Container.Content(episodes)]</visible>
+			</control>
+			<control type="image">
+				<width>10</width>
+				<height>15</height>
+				<texture>Common/Button_Off.png</texture>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7002)">Conditional</animation>
+				<visible>Skin.HasSetting(HideRuntimes)</visible>
+				<visible>[Control.IsVisible(3002) | Control.IsVisible(3006) | Control.IsVisible(3009)] + [Container.Content(movies) | Container.Content(episodes)]</visible>
+			</control>
+			<control type="image">
+				<width>10</width>
+				<height>15</height>
+				<texture>Common/Button_On.png</texture>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7002)">Conditional</animation>
+				<visible>!Skin.HasSetting(HideRuntimes)</visible>
+				<visible>[Control.IsVisible(3002) | Control.IsVisible(3006) | Control.IsVisible(3009)] + [Container.Content(movies) | Container.Content(episodes)]</visible>
+			</control>
+		</control>
+	</control>
+	<include>Global_Time</include>
+	<include condition="Skin.HasSetting(DebugGrid)">Object_DebugGrid</include>
+</controls>
+</window>

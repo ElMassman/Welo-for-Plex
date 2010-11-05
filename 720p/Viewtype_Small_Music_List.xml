@@ -1,0 +1,211 @@
+﻿<includes>
+	<include name="Viewtype_Small_Music_List">
+		<control type="group">
+			<visible>Control.IsVisible(3008)</visible>
+			<control type="image">
+				<include>Fullscreen_Dimensions</include>
+				<include>Light_Fade</include>
+				<texture>Views/List/Small_Singles_Light.png</texture>
+			</control>
+			<control type="group">
+				<include>Left_Right_Slide</include>
+				<control type="list" id="3008">
+					<visible>Window.IsVisible(musiclibrary) + Container.Content(songs)</visible>
+					<animation effect="fade" start="0" end="100" time="200" delay="400" condition="Container.Content(songs)">Conditional</animation>
+					<posx>408</posx>
+					<posy>247</posy>
+					<width>672</width>
+					<height>200</height>
+					<onup>3008</onup>
+					<ondown>3008</ondown>
+					<onleft>300</onleft>
+					<onright>60</onright>
+					<scrolltime>0</scrolltime>
+					<viewtype label="50029">list</viewtype>
+					<orientation>vertical</orientation>
+					<pagecontrol>60</pagecontrol>
+					<itemlayout width="672" height="22">
+						<control type="label">
+							<posx>32</posx>
+							<posy>1</posy>
+							<width>40</width>
+							<height>20</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.TrackNumber].</label>
+						</control>
+						<control type="label">
+							<posx>42</posx>
+							<posy>1</posy>
+							<width>584</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>Black</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>Skin.HasSetting(HideMusicStars) + Skin.HasSetting(HideSongRuntimes)</visible>
+						</control>
+						<control type="label">
+							<posx>42</posx>
+							<posy>1</posy>
+							<width>484</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>Black</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>[!Skin.HasSetting(HideMusicStars) + Skin.HasSetting(HideSongRuntimes)] | [Skin.HasSetting(HideMusicStars) + !Skin.HasSetting(HideSongRuntimes)]</visible>
+						</control>
+						<control type="label">
+							<posx>42</posx>
+							<posy>1</posy>
+							<width>384</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>Black</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>!Skin.HasSetting(HideMusicStars) + !Skin.HasSetting(HideSongRuntimes)</visible>
+						</control>
+						<control type="image">
+							<posx>444</posx>
+							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
+							<include>List_StarRatings</include>
+							<texture>$INFO[ListItem.StarRating]</texture>
+							<animation effect="slide" start="0,0" end="102" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideSongRuntimes)">Conditional</animation>
+							<visible>!Skin.HasSetting(HideMusicStars)</visible>
+						</control>
+						<control type="image">
+							<posx>444</posx>
+							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
+							<include>List_StarRatings</include>
+							<texture>Star_Ratings/NA.png</texture>
+							<animation effect="slide" start="0,0" end="102" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideSongRuntimes)">Conditional</animation>
+							<visible>IsEmpty(ListItem.StarRating) + !Skin.HasSetting(HideMusicStars)</visible>
+						</control>
+						<control type="label">
+							<posx>640</posx>
+							<posy>2</posy>
+							<width>90</width>
+							<height>20</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>Black</textcolor>
+							<label>$INFO[ListItem.Duration,, mins]</label>
+							<visible>!Skin.HasSetting(HideSongRuntimes)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout width="672" height="24">
+						<control type="image">
+							<posx>0</posx>
+							<posy>1</posy>
+							<width>652</width>
+							<height>24</height>
+							<texture>Views/List/Small_List_Focus.png</texture>
+							<animation effect="fade" start="100" end="80" condition="Control.HasFocus(60) | Control.HasFocus(61)">Conditional</animation>
+							<animation type="Focus" condition="Container.OnNext" reversible="false">
+								<effect type="fade" start="76" end="100" time="200"/>
+								<effect type="slide" start="0,-24" end="0,0" time="200" tween="back" easing="out"/>
+							</animation>
+							<animation type="Focus" condition="Container.OnPrevious" reversible="false">
+								<effect type="fade" start="76" end="100" time="200"/>
+								<effect type="slide" start="0,24" end="0,0" time="200" tween="back" easing="out"/>
+							</animation>
+						</control>
+						<control type="label">
+							<posx>32</posx>
+							<posy>2</posy>
+							<width>40</width>
+							<height>20</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.TrackNumber].</label>
+						</control>
+						<control type="label">
+							<posx>42</posx>
+							<posy>2</posy>
+							<width>584</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>Skin.HasSetting(HideMusicStars) + Skin.HasSetting(HideSongRuntimes)</visible>
+						</control>
+						<control type="label">
+							<posx>42</posx>
+							<posy>2</posy>
+							<width>484</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>[!Skin.HasSetting(HideMusicStars) + Skin.HasSetting(HideSongRuntimes)] | [Skin.HasSetting(HideMusicStars) + !Skin.HasSetting(HideSongRuntimes)]</visible>
+						</control>
+						<control type="label">
+							<posx>42</posx>
+							<posy>2</posy>
+							<width>384</width>
+							<height>20</height>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Title]</label>
+							<visible>!Skin.HasSetting(HideMusicStars) + !Skin.HasSetting(HideSongRuntimes)</visible>
+						</control>
+						<control type="image">
+							<posx>444</posx>
+							<include>List_StarRatings</include>
+							<texture>$INFO[ListItem.StarRating]</texture>
+							<animation effect="slide" start="0,0" end="102,0" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideSongRuntimes)">Conditional</animation>
+							<visible>!Skin.HasSetting(HideMusicStars)</visible>
+						</control>
+						<control type="image">
+							<posx>444</posx>
+							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
+							<include>List_StarRatings</include>
+							<texture>Star_Ratings/NA.png</texture>
+							<animation effect="slide" start="0,0" end="102" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideSongRuntimes)">Conditional</animation>
+							<visible>IsEmpty(ListItem.StarRating) + !Skin.HasSetting(HideMusicStars)</visible>
+						</control>
+						<control type="label">
+							<posx>640</posx>
+							<posy>2</posy>
+							<width>90</width>
+							<height>20</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>Font_NoCaps_20</font>
+							<textcolor>White</textcolor>
+							<label>$INFO[ListItem.Duration,, mins]</label>
+							<visible>!Skin.HasSetting(HideSongRuntimes)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="scrollbar" id="60">
+					<posx>1074</posx>
+					<posy>248</posy>
+					<width>5</width>
+					<height>198</height>
+					<visible allowhiddenfocus="true">Control.IsVisible(3008) + Control.HasFocus(60)</visible>
+					<texturesliderbackground>Views/Scroll_Back.png</texturesliderbackground>
+					<texturesliderbarfocus>Views/Scroll_Bar_Focus.png</texturesliderbarfocus>
+					<texturesliderbar>Views/Scroll_Bar.png</texturesliderbar>
+					<onup>3000</onup>
+					<ondown>3000</ondown>
+					<onleft>3000</onleft>
+					<onright>3000</onright>
+					<showonepage>true</showonepage>
+					<orientation>vertical</orientation>
+				</control>
+			</control>
+			<include>Song_Details</include>
+		</control>
+	</include>
+</includes>

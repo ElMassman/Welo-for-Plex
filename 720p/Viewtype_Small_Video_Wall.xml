@@ -1,0 +1,224 @@
+<includes>
+	<include name="Viewtype_Small_Video_Wall">
+		<control type="group">
+			<visible>Control.IsVisible(3004) | Control.IsVisible(3005)</visible>
+			<include>Background_Small_Flick</include>
+			<control type="label">
+				<include>Small_List_Heading_Details_1</include>
+				<label>342</label>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<include>Small_List_Heading_Details_1</include>
+				<label>$LOCALIZE[50023]</label>
+				<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>
+			<include>Background_Small_Diffuse</include>
+			<control type="label">
+				<include>Small_List_Heading_Details_2</include>
+				<label>342</label>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<include>Small_List_Heading_Details_2</include>
+				<label>$LOCALIZE[50023]</label>
+				<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+			</control>
+			<control type="group">
+				<include>Left_Right_Slide</include>
+				<control type="image">
+					<include>Fullscreen_Dimensions</include>
+					<texture>Views/Wall/Wall_Shadow.png</texture>
+				</control>
+				<control type="panel" id="3004">
+					<animation effect="slide" end="0,141" condition="!IntegerGreaterThan(Container.NumItems,12)">Conditional</animation>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+					<viewtype label="50025">panel</viewtype>
+					<posx>35</posx>
+					<posy>185</posy>
+					<width>1212</width>
+					<height>282</height>
+					<scrolltime>80</scrolltime>
+					<orientation>vertical</orientation>
+					<onup>3004</onup>
+					<ondown>3004</ondown>
+					<onleft>300</onleft>
+					<onright>60</onright>
+					<pagecontrol>60</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<itemlayout width="101" height="141">
+						<control type="image">
+							<posx>3</posx>
+							<posy>3</posy>
+							<width>95</width>
+							<height>135</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>3</posx>
+							<posy>3</posy>
+							<width>95</width>
+							<height>135</height>
+							<texture>Views/Wall/Wall_Poster_Overlay_NF.png</texture>
+						</control>
+						<control type="image">
+							<posx>66</posx>
+							<posy>108</posy>
+							<width>30</width>
+							<height>28</height>
+							<texture>$INFO[ListItem.Overlay]</texture>
+							<visible>!Skin.HasSetting(HideTicks)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout width="101" height="141">
+						<control type="group">
+							<animation effect="zoom" end="120" center="auto" time="200" tween="back" easing="out" reversible="false">Focus</animation>
+							<control type="image">
+								<animation effect="zoom" end="200,150" center="auto" reversible="false">Focus</animation>
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>101</width>
+								<height>141</height>
+								<texture border="28">Views/Wall/Shadow.png</texture>
+							</control>
+							<control type="image">
+								<posx>3</posx>
+								<posy>3</posy>
+								<width>95</width>
+								<height>134</height>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+								<aspectratio>stretch</aspectratio>
+							</control>
+							<control type="image">
+								<posx>3</posx>
+								<posy>3</posy>
+								<width>95</width>
+								<height>134</height>
+								<texture>Views/Wall/Wall_Poster_Overlay_FO.png</texture>
+							</control>
+							<control type="image">
+								<posx>66</posx>
+								<posy>108</posy>
+								<width>30</width>
+								<height>28</height>
+								<texture>$INFO[ListItem.Overlay]</texture>
+								<visible>!Skin.HasSetting(HideTicks)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="panel" id="3005">
+					<animation effect="slide" end="0,141" condition="!IntegerGreaterThan(Container.NumItems,5)">Conditional</animation>
+					<visible>Window.IsVisible(videolibrary) + Container.Content(episodes)</visible>
+					<viewtype label="50025">panel</viewtype>
+					<posx>26</posx>
+					<posy>185</posy>
+					<width>1230</width>
+					<height>282</height>
+					<scrolltime>80</scrolltime>
+					<orientation>vertical</orientation>
+					<onup>3005</onup>
+					<ondown>3005</ondown>
+					<onleft>300</onleft>
+					<onright>62</onright>
+					<pagecontrol>62</pagecontrol>
+					<preloaditems>2</preloaditems>
+					<itemlayout width="246" height="141">
+						<control type="image">
+							<posx>3</posx>
+							<posy>3</posy>
+							<width>240</width>
+							<height>135</height>
+							<texture background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>3</posx>
+							<posy>3</posy>
+							<width>240</width>
+							<height>135</height>
+							<texture>Views/Wall/Wall_Poster_Overlay_NF.png</texture>
+						</control>
+						<control type="image">
+							<posx>208</posx>
+							<posy>108</posy>
+							<width>30</width>
+							<height>28</height>
+							<texture>$INFO[ListItem.Overlay]</texture>
+							<visible>!Skin.HasSetting(HideTicks)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout width="246" height="141">
+						<control type="group">
+							<animation effect="zoom" end="112" center="auto" time="200" tween="back" easing="out" reversible="false">Focus</animation>
+							<control type="image">
+								<animation effect="zoom" end="120,144" center="auto" reversible="false">Focus</animation>
+								<posx>0</posx>
+								<posy>0</posy>
+								<width>246</width>
+								<height>141</height>
+								<texture border="28">Views/Wall/Shadow.png</texture>
+							</control>
+							<control type="image">
+								<posx>3</posx>
+								<posy>3</posy>
+								<width>240</width>
+								<height>135</height>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+								<aspectratio>stretch</aspectratio>
+							</control>
+							<control type="image">
+								<posx>3</posx>
+								<posy>3</posy>
+								<width>240</width>
+								<height>135</height>
+								<texture>Views/Wall/Wall_Episode_Overlay_FO.png</texture>
+							</control>
+							<control type="image">
+								<posx>208</posx>
+								<posy>108</posy>
+								<width>30</width>
+								<height>28</height>
+								<texture>$INFO[ListItem.Overlay]</texture>
+								<visible>!Skin.HasSetting(HideTicks)</visible>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+			</control>
+			<control type="scrollbar" id="60">
+				<posx>1262</posx>
+				<posy>188</posy>
+				<width>5</width>
+				<height>275</height>
+				<visible allowhiddenfocus="true">Control.IsVisible(3004) + Control.HasFocus(60)</visible>
+				<texturesliderbackground>Views/Scroll_Back.png</texturesliderbackground>
+				<texturesliderbarfocus>Views/Scroll_Bar_Focus.png</texturesliderbarfocus>
+				<texturesliderbar>Views/Scroll_Bar.png</texturesliderbar>
+				<onup>3000</onup>
+				<ondown>3000</ondown>
+				<onleft>3000</onleft>
+				<onright>3000</onright>
+				<showonepage>true</showonepage>
+				<orientation>vertical</orientation>
+			</control>
+			<control type="scrollbar" id="62">
+				<posx>1262</posx>
+				<posy>188</posy>
+				<width>5</width>
+				<height>275</height>
+				<visible allowhiddenfocus="true">Control.IsVisible(3005) + Control.HasFocus(62)</visible>
+				<texturesliderbackground>Views/Scroll_Back.png</texturesliderbackground>
+				<texturesliderbarfocus>Views/Scroll_Bar_Focus.png</texturesliderbarfocus>
+				<texturesliderbar>Views/Scroll_Bar.png</texturesliderbar>
+				<onup>3000</onup>
+				<ondown>3000</ondown>
+				<onleft>3000</onleft>
+				<onright>3000</onright>
+				<showonepage>true</showonepage>
+				<orientation>vertical</orientation>
+			</control>
+		</control>
+	</include>
+</includes>

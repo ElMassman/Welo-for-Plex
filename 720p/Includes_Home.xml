@@ -1,0 +1,461 @@
+﻿<includes>
+	<include name="Home_Extreme_Details">
+		<animation effect="fade" start="0" end="100" time="0" delay="3800" condition="Window.Previous(startup)">WindowOpen</animation>
+		<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+		<animation effect="fade" start="100" end="0" time="0">WindowClose</animation>
+		<include>Fullscreen_Dimensions</include>
+	</include>
+	<include name="Home_Title">
+		<posx>776</posx>
+		<width>484</width>
+		<height>120</height>
+		<align>center</align>
+		<aligny>top</aligny>
+		<font>Font_Big_Caps_24</font>
+	</include>
+	<include name="Home_Title_Sub">
+		<posx>853</posx>
+		<width>330</width>
+		<height>140</height>
+		<align>center</align>
+		<aligny>bottom</aligny>
+		<font>Font_Big_Caps_16</font>
+		<wrapmultiline>true</wrapmultiline>
+	</include>
+	<include name="Home_StarRatings">
+		<posx>956</posx>
+		<posy>510</posy>
+		<width>120</width>
+		<height>24</height>
+	</include>
+	<include name="Home_Image_Dimension">
+		<posx>872</posx>
+		<posy>212</posy>
+		<width>364</width>
+		<height>262</height>
+	</include>
+	<include name="Home_Arrow_Next">
+		<control type="image">
+			<posx>1240</posx>
+			<posy>296</posy>
+			<width>22</width>
+			<height>28</height>
+			<texture>Home/Arrow_Next.png</texture>
+			<animation effect="slide" start="0,0" end="-3,-18" condition="Skin.HasSetting(HomeClean) | Skin.HasSetting(HomeExtreme)">Conditional</animation>
+		</control>
+	</include>
+	<include name="Home_Image_Animation">
+		<animation type="WindowOpen" condition="Window.Previous(startup)">
+			<effect type="slide" start="3600,0" end="0,0" time="3600"/>
+			<effect type="fade" start="0" end="100" time="400" />
+		</animation>
+		<animation type="WindowOpen" condition="!Window.Previous(startup)">
+			<effect type="slide" start="640,0" end="0,0" time="600"/>
+			<effect type="fade" start="0" end="100" time="400" />
+		</animation>
+		<animation type="Visible" reversible="false">
+			<effect type="slide" start="640,0" end="0,0" time="600"/>
+			<effect type="fade" start="0" end="100" time="400" />
+		</animation>
+		<animation effect="fade" start="100" end="0" time="0">WindowClose</animation>
+	</include>
+	<include name="Home_Extreme">
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_DVD.png</texture>
+			<visible>Container(300).HasFocus(1)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Movies.png</texture>
+			<visible>Container(300).HasFocus(3)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_TVShows.png</texture>
+			<visible>Container(300).HasFocus(4)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Music.png</texture>
+			<visible>Container(300).HasFocus(5)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Videos.png</texture>
+			<visible>Container(300).HasFocus(6)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Pictures.png</texture>
+			<visible>Container(300).HasFocus(7)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Favourites.png</texture>
+			<visible>Container(300).HasFocus(8)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Weather.png</texture>
+			<visible>Container(300).HasFocus(9)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Apps.png</texture>
+			<visible>Container(300).HasFocus(10)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Settings.png</texture>
+			<visible>Container(300).HasFocus(11)</visible>
+		</control>
+		<control type="image">
+			<include>Home_Extreme_Details</include>
+			<texture>Home/Extreme_Shutdown.png</texture>
+			<visible>Container(300).HasFocus(12)</visible>
+		</control>
+	</include>
+	<include name="Home_Simple_Movies">
+		<posx>664</posx>
+		<posy>191</posy>
+		<width>576</width>
+		<height>298</height>
+		<onleft>301</onleft>
+		<onright>301</onright>
+		<ondown>300</ondown>
+		<viewtype>list</viewtype>
+		<orientation>horizontal</orientation>
+		<scrolltime>200</scrolltime>
+		<itemlayout width="192" height="298">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>175</width>
+				<height>298</height>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="35">Common/Shadow.png</bordertexture>
+				<bordersize>0,0,0,35</bordersize>
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="192" height="298">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>175</width>
+				<height>298</height>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="35">Common/Shadow.png</bordertexture>
+				<bordersize>0,0,0,35</bordersize>
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>69</posx>
+				<posy>119</posy>
+				<width>38</width>
+				<height>32</height>
+				<texture>Home/Arrow_Selected.png</texture>
+				<animation effect="fade" start="100" end="60" time="200" condition="!Control.HasFocus(301)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Home_Movies">
+		<posx>714</posx>
+		<posy>166</posy>
+		<width>513</width>
+		<height>334</height>
+		<onleft>301</onleft>
+		<onright>301</onright>
+		<ondown>300</ondown>
+		<viewtype>list</viewtype>
+		<orientation>horizontal</orientation>
+		<scrolltime>200</scrolltime>
+		<itemlayout width="171" height="334">
+			<control type="image">
+				<posx>0</posx>
+				<posy>8</posy>
+				<width>160</width>
+				<height>238</height>
+				<texture diffuse="Home/Poster_Diffuse_Filter.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>160</width>
+				<height>252</height>
+				<texture>Home/Poster_Overlay.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>278</posy>
+				<width>160</width>
+				<height>238</height>
+				<texture flipy="true" diffuse="Home/Reflect_Diffuse.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="171" height="334">
+			<control type="image">
+				<posx>0</posx>
+				<posy>8</posy>
+				<width>160</width>
+				<height>238</height>
+				<texture diffuse="Home/Poster_Diffuse_Filter.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>160</width>
+				<height>252</height>
+				<texture>Home/Poster_Overlay.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>278</posy>
+				<width>160</width>
+				<height>238</height>
+				<texture flipy="true" diffuse="Home/Reflect_Diffuse.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>61</posx>
+				<posy>103</posy>
+				<width>38</width>
+				<height>32</height>
+				<texture>Home/Arrow_Selected.png</texture>
+				<animation effect="fade" start="100" end="60" time="200" condition="!Control.HasFocus(301)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Home_Simple_TVShows">
+		<posx>756</posx>
+		<posy>191</posy>
+		<width>468</width>
+		<height>298</height>
+		<onleft>302</onleft>
+		<onright>302</onright>
+		<ondown>300</ondown>
+		<viewtype>list</viewtype>
+		<orientation>horizontal</orientation>
+		<scrolltime>200</scrolltime>
+		<itemlayout width="468" height="298">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>468</width>
+				<height>298</height>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="35">Common/Shadow.png</bordertexture>
+				<bordersize>0,0,0,35</bordersize>
+				<aspectratio>scale</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="468" height="298">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>468</width>
+				<height>298</height>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="35">Common/Shadow.png</bordertexture>
+				<bordersize>0,0,0,35</bordersize>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>215</posx>
+				<posy>119</posy>
+				<width>38</width>
+				<height>32</height>
+				<texture>Home/Arrow_Selected.png</texture>
+				<animation effect="fade" start="100" end="60" time="200" condition="!Control.HasFocus(302)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Home_TVShows">
+		<posx>792</posx>
+		<posy>166</posy>
+		<width>424</width>
+		<height>334</height>
+		<onleft>302</onleft>
+		<onright>302</onright>
+		<ondown>300</ondown>
+		<viewtype>list</viewtype>
+		<orientation>horizontal</orientation>
+		<scrolltime>200</scrolltime>
+		<itemlayout width="424" height="334">
+			<control type="image">
+				<posx>0</posx>
+				<posy>8</posy>
+				<width>424</width>
+				<height>238</height>
+				<texture diffuse="Home/Episode_Diffuse_Filter.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>424</width>
+				<height>252</height>
+				<texture>Home/Episode_Overlay.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>278</posy>
+				<width>424</width>
+				<height>252</height>
+				<texture flipy="true" diffuse="Home/Reflect_Diffuse.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="424" height="334">
+			<control type="image">
+				<posx>0</posx>
+				<posy>8</posy>
+				<width>424</width>
+				<height>238</height>
+				<texture diffuse="Home/Episode_Diffuse_Filter.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>424</width>
+				<height>252</height>
+				<texture>Home/Episode_Overlay.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>278</posy>
+				<width>424</width>
+				<height>252</height>
+				<texture flipy="true" diffuse="Home/Reflect_Diffuse.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>196</posx>
+				<posy>107</posy>
+				<width>38</width>
+				<height>32</height>
+				<texture>Home/Arrow_Selected.png</texture>
+				<animation effect="fade" start="100" end="60" time="200" condition="!Control.HasFocus(302)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Home_Simple_Music">
+		<posx>682</posx>
+		<posy>191</posy>
+		<width>558</width>
+		<height>298</height>
+		<onleft>303</onleft>
+		<onright>303</onright>
+		<ondown>300</ondown>
+		<viewtype>list</viewtype>
+		<orientation>horizontal</orientation>
+		<scrolltime>200</scrolltime>
+		<itemlayout width="279" height="298">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>263</width>
+				<height>298</height>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="35">Common/Shadow.png</bordertexture>
+				<bordersize>0,0,0,35</bordersize>
+				<aspectratio align="center" aligny="top">stretch</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="279" height="298">
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>263</width>
+				<height>298</height>
+				<texture>$INFO[ListItem.Icon]</texture>
+				<bordertexture border="35">Common/Shadow.png</bordertexture>
+				<bordersize>0,0,0,35</bordersize>
+				<aspectratio align="center" aligny="top">stretch</aspectratio>
+			</control>
+			<control type="image">
+				<posx>112</posx>
+				<posy>119</posy>
+				<width>38</width>
+				<height>32</height>
+				<texture>Home/Arrow_Selected.png</texture>
+				<animation effect="fade" start="100" end="60" time="200" condition="!Control.HasFocus(303)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="Home_Music">
+		<posx>729</posx>
+		<posy>166</posy>
+		<width>498</width>
+		<height>334</height>
+		<onleft>303</onleft>
+		<onright>303</onright>
+		<ondown>300</ondown>
+		<viewtype>list</viewtype>
+		<orientation>horizontal</orientation>
+		<scrolltime>200</scrolltime>
+		<itemlayout width="249" height="334">
+			<control type="image">
+				<posx>0</posx>
+				<posy>8</posy>
+				<width>238</width>
+				<height>238</height>
+				<texture diffuse="Home/Music_Diffuse_Filter.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>238</width>
+				<height>252</height>
+				<texture>Home/Music_Overlay.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>278</posy>
+				<width>238</width>
+				<height>252</height>
+				<texture flipy="true" diffuse="Home/Reflect_Diffuse.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+		</itemlayout>
+		<focusedlayout width="249" height="334">
+			<control type="image">
+				<posx>0</posx>
+				<posy>8</posy>
+				<width>238</width>
+				<height>238</height>
+				<texture diffuse="Home/Music_Diffuse_Filter.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>238</width>
+				<height>252</height>
+				<texture>Home/Music_Overlay.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>278</posy>
+				<width>238</width>
+				<height>252</height>
+				<texture flipy="true" diffuse="Home/Reflect_Diffuse.png">$INFO[ListItem.Icon]</texture>
+				<aspectratio scalediffuse="false" align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<posx>100</posx>
+				<posy>111</posy>
+				<width>38</width>
+				<height>32</height>
+				<texture>Home/Arrow_Selected.png</texture>
+				<animation effect="fade" start="100" end="60" time="200" condition="!Control.HasFocus(303)">Conditional</animation>
+			</control>
+		</focusedlayout>
+	</include>
+</includes>

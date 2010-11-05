@@ -1,0 +1,119 @@
+<includes>
+	<include name="Viewtype_Small_Video_Poster">
+		<control type="group">
+			<visible>Control.IsVisible(3003)</visible>
+			<include>Background_Small_Flick</include>
+			<control type="label">
+				<include>Small_List_Heading_Details_1</include>
+				<label>342</label>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<include>Small_List_Heading_Details_1</include>
+				<label>$LOCALIZE[50023]</label>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+			</control>
+			<include>Background_Small_Diffuse</include>
+			<control type="label">
+				<include>Small_List_Heading_Details_2</include>
+				<label>342</label>
+				<visible>Container.Content(movies)</visible>
+			</control>
+			<control type="label">
+				<include>Small_List_Heading_Details_2</include>
+				<label>$LOCALIZE[50023]</label>
+				<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
+			</control>
+			<control type="image">
+				<include>Fullscreen_Dimensions</include>
+				<include>Light_Fade</include>
+				<texture>Views/Cover/Poster_Light.png</texture>
+			</control>
+			<control type="group">
+				<include>Left_Right_Slide</include>
+				<control type="fixedlist" id="3003">
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+					<posx>-105</posx>
+					<posy>190</posy>
+					<height>310</height>
+					<width>1480</width>
+					<onup>300</onup>
+					<ondown>60</ondown>
+					<onleft>3003</onleft>
+					<onright>3003</onright>
+					<focusposition>4</focusposition>
+					<scrolltime>160</scrolltime>
+					<preloaditems>2</preloaditems>
+					<viewtype label="50024">list</viewtype>
+					<orientation>horizontal</orientation>
+					<pagecontrol>60</pagecontrol>
+					<itemlayout width="162" height="310">
+						<control type="image">
+							<posx>7</posx>
+							<posy>30</posy>
+							<width>148</width>
+							<height>253</height>
+							<texture background="true" fallback="No_Image.png">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="35">Common/Shadow.png</bordertexture>
+							<bordersize>0,0,0,35</bordersize>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>7</posx>
+							<posy>30</posy>
+							<width>148</width>
+							<height>218</height>
+							<texture>Views/Wall/Wall_Poster_Overlay_NF.png</texture>
+						</control>
+						<control type="image">
+							<posx>125</posx>
+							<posy>220</posy>
+							<width>26</width>
+							<height>24</height>
+							<texture>$INFO[ListItem.Overlay]</texture>
+							<visible>!Skin.HasSetting(HideTicks)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout width="194" height="310">
+						<control type="image">
+							<posx>5</posx>
+							<posy>0</posy>
+							<width>184</width>
+							<height>309</height>
+							<texture background="true" fallback="No_Image.png">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="35">Common/Shadow.png</bordertexture>
+							<bordersize>0,0,0,35</bordersize>
+							<aspectratio>stretch</aspectratio>
+							<animation effect="zoom" center="97,137" start="51" end="100" time="400" tween="back" easing="out" reversible="false">Focus</animation>
+						</control>
+						<control type="image">
+							<posx>150</posx>
+							<posy>238</posy>
+							<width>36</width>
+							<height>33</height>
+							<texture>$INFO[ListItem.Overlay]</texture>
+							<animation effect="zoom" center="97,137" start="80" end="100" time="400" tween="back" easing="out" reversible="false">Focus</animation>
+							<visible>!Skin.HasSetting(HideTicks)</visible>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="scrollbar" id="60">
+					<posx>40</posx>
+					<posy>496</posy>
+					<width>1200</width>
+					<height>5</height>
+					<visible allowhiddenfocus="true">Control.IsVisible(3003) + Control.HasFocus(60)</visible>
+					<texturesliderbackground>Views/Scroll_Back.png</texturesliderbackground>
+					<texturesliderbarfocus>Views/Scroll_Bar_Focus.png</texturesliderbarfocus>
+					<texturesliderbar>Views/Scroll_Bar.png</texturesliderbar>
+					<onup>3000</onup>
+					<onleft>3000</onleft>
+					<onright>3000</onright>
+					<ondown>61</ondown>
+					<showonepage>true</showonepage>
+					<orientation>horizontal</orientation>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

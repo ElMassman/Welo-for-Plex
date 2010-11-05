@@ -1,0 +1,108 @@
+﻿<includes>
+	<include name="Viewtype_Small_Music_Cover">
+		<control type="group">
+			<visible>Control.IsVisible(3007)</visible>
+			<include>Background_Small_Flick</include>
+			<control type="image">
+				<include>Fullscreen_Dimensions</include>
+				<include>Light_Fade</include>
+				<texture>Views/Cover/Small_Cover_Light.png</texture>
+			</control>
+			<control type="group">
+				<include>Left_Right_Slide</include>
+				<control type="fixedlist" id="3007">
+					<visible>Window.IsVisible(musiclibrary) + Container.Content(albums)</visible>
+					<posx>-114</posx>
+					<posy>232</posy>
+					<height>310</height>
+					<width>1480</width>
+					<onup>300</onup>
+					<ondown>60</ondown>
+					<onleft>3007</onleft>
+					<onright>3007</onright>
+					<focusposition>3</focusposition>
+					<scrolltime>160</scrolltime>
+					<preloaditems>2</preloaditems>
+					<viewtype label="50027">list</viewtype>
+					<orientation>horizontal</orientation>
+					<pagecontrol>60</pagecontrol>
+					<itemlayout width="208" height="310">
+						<control type="image">
+							<posx>7</posx>
+							<posy>18</posy>
+							<width>194</width>
+							<height>229</height>
+							<texture background="true" fallback="No_Image.png">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="35">Common/Shadow.png</bordertexture>
+							<bordersize>0,0,0,35</bordersize>
+							<aspectratio>stretch</aspectratio>
+						</control>
+						<control type="image">
+							<posx>7</posx>
+							<posy>18</posy>
+							<width>194</width>
+							<height>194</height>
+							<texture>Views/Wall/Wall_Poster_Overlay_NF.png</texture>
+						</control>
+					</itemlayout>
+					<focusedlayout width="262" height="310">
+						<control type="image">
+							<posx>232</posx>
+							<posy>1</posy>
+							<width>32</width>
+							<height>221</height>
+							<texture>Views/Cover/Small_Cover_Back.png</texture>
+							<animation type="Focus" reversible="false">
+								<effect type="slide" start="-32,0" end="0,0" time="400" reversible="false" delay="200"/>
+								<effect type="fade" start="0" end="100" time="400" reversible="false" delay="200"/>
+							</animation>
+						</control>
+						<control type="label">
+							<posx>259</posx>
+							<posy>111</posy>
+							<width>222</width>
+							<height>34</height>
+							<align>center</align>
+							<font>Font_Big_Caps_14</font>
+							<textcolor>Black</textcolor>
+							<label>&#9650; $LOCALIZE[182]</label>
+							<animation effect="rotate" center="259,111" start="-90" end="-90" time="0" condition="true">Conditional</animation>
+							<animation type="Focus" reversible="false">
+								<effect type="slide" start="0,32" end="0,0" time="400" reversible="false" delay="200"/>
+								<effect type="fade" start="0" end="100" time="400" reversible="false" delay="200"/>
+							</animation>
+						</control>
+						<control type="image">
+							<posx>5</posx>
+							<posy>0</posy>
+							<width>232</width>
+							<height>267</height>
+							<texture background="true" fallback="No_Image.png">$INFO[ListItem.Icon]</texture>
+							<bordertexture border="35">Common/Shadow.png</bordertexture>
+							<bordersize>0,0,0,35</bordersize>
+							<aspectratio>stretch</aspectratio>
+							<animation effect="zoom" center="97,137" start="51" end="100" time="400" tween="back" easing="out" reversible="false">Focus</animation>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="scrollbar" id="60">
+					<posx>40</posx>
+					<posy>496</posy>
+					<width>1200</width>
+					<height>5</height>
+					<visible allowhiddenfocus="true">Control.IsVisible(3007) + Control.HasFocus(60)</visible>
+					<texturesliderbackground>Views/Scroll_Back.png</texturesliderbackground>
+					<texturesliderbarfocus>Views/Scroll_Bar_Focus.png</texturesliderbarfocus>
+					<texturesliderbar>Views/Scroll_Bar.png</texturesliderbar>
+					<onup>3000</onup>
+					<ondown>61</ondown>
+					<onleft>3000</onleft>
+					<onright>3000</onright>
+					<showonepage>true</showonepage>
+					<orientation>horizontal</orientation>
+				</control>
+			</control>
+			<include>Music_Details</include>
+		</control>
+	</include>
+</includes>

@@ -1,0 +1,83 @@
+﻿<window id="24">
+	<defaultcontrol always="true">3000</defaultcontrol>
+	<views>3000</views>
+	<allowoverlay>yes</allowoverlay>
+	<controls>
+		<include>Viewtype_Common_List</include>
+		<include>Main_Menu</include>
+		<control type="group" id="3001">
+			<visible>!Skin.HasSetting(KioskMode)</visible>
+			<animation type="Conditional" condition="!Controlgroup(3001).HasFocus()">
+				<effect type="slide" start="0,0" end="0,30" time="200" />
+				<effect type="fade" start="100" end="0" time="100" />
+			</animation>
+			<animation effect="fade" start="0" end="100" time="800">WindowOpen</animation>
+			<control type="grouplist" id="600">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1</width>
+				<height>1</height>
+				<onleft>600</onleft>
+				<onright>600</onright>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<orientation>horizontal</orientation>
+				<control type="button" id="2">
+					<label>-</label>
+				</control>
+				<control type="button" id="3">
+					<label>-</label>
+				</control>
+				<control type="togglebutton" id="4">
+					<label>&#9660;</label>
+					<altlabel>&#9650;</altlabel>
+				</control>
+				<control type="radiobutton" id="7"/>
+				<control type="button" id="13"/>
+			</control>
+			<control type="grouplist">
+				<posx>12</posx>
+				<posy>132</posy>
+				<height>20</height>
+				<width>1280</width>
+				<itemgap>12</itemgap>
+				<align>left</align>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(2)">Conditional</animation>
+					<label>$INFO[Control.GetLabel(2)]</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(3)">Conditional</animation>
+					<label>$INFO[Control.GetLabel(3)]</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(4)">Conditional</animation>
+					<label>$INFO[Control.GetLabel(4)]</label>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7)">Conditional</animation>
+					<label>$LOCALIZE[50031]</label>
+					<visible>SubString(Control.GetLabel(7),(*))</visible>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(7)">Conditional</animation>
+					<label>$LOCALIZE[50032]</label>
+					<visible>!SubString(Control.GetLabel(7),(*))</visible>
+				</control>
+				<control type="label">
+					<include>Sub_Titles</include>
+					<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(13)">Conditional</animation>
+					<label>136</label>
+				</control>
+			</control>
+		</control>
+		<include>Global_Time</include>
+		<include condition="Skin.HasSetting(DebugGrid)">Object_DebugGrid</include>
+	</controls>
+</window>

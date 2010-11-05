@@ -1,0 +1,134 @@
+﻿<window id="2004">
+	<defaultcontrol>-</defaultcontrol>
+	<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+	<controls>
+		<control type="group">
+			<animation type="WindowOpen">
+				<effect type="slide" start="-400,0" end="0,0" time="600" tween="cubic" easing="out" />
+				<effect type="fade" start="0" end="100" time="600" />
+			</animation>
+			<animation effect="fade" start="100" end="0" time="200">Hidden</animation>
+			<posx>13</posx>
+			<posy>519</posy>
+			<visible>Window.IsActive(home) | stringcompare(Container.ViewMode,$LOCALIZE[50027]) | stringcompare(Container.ViewMode,$LOCALIZE[50029])</visible>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>430</width>
+				<height>192</height>
+				<texture border="10,10,250,10">Common/Now_Playing_Overlay.png</texture>
+			</control>
+			<control type="image">
+				<posx>5</posx>
+				<posy>5</posy>
+				<width>181</width>
+				<height>181</height>
+				<texture>$INFO[MusicPlayer.Cover]</texture>
+				<aspectratio aligny="top">scale</aspectratio>
+			</control>
+			<control type="group">
+				<posx>206</posx>
+				<control type="fadelabel">
+					<posx>0</posx>
+					<posy>8</posy>
+					<width>236</width>
+					<scrollout>false</scrollout>
+					<pauseatend>1800</pauseatend>
+					<scrollspeed>40</scrollspeed>
+					<scroll>true</scroll>
+					<font>Font_Caps_14</font>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<textcolor>NowPlayingTitle</textcolor>
+				</control>
+				<control type="fadelabel">
+					<posx>0</posx>
+					<posy>36</posy>
+					<width>236</width>
+					<scrollout>false</scrollout>
+					<pauseatend>1800</pauseatend>
+					<scrollspeed>40</scrollspeed>
+					<scroll>true</scroll>
+					<font>Font_14</font>
+					<label>$INFO[MusicPlayer.Album]</label>
+					<textcolor>NowPlayingAlbum</textcolor>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>111</posy>
+					<width>236</width>
+					<font>Font_Caps_12</font>
+					<label>$LOCALIZE[50015]</label>
+					<textcolor>NowPlaying</textcolor>
+				</control>
+				<control type="fadelabel">
+					<posx>0</posx>
+					<posy>126</posy>
+					<width>236</width>
+					<scrollout>false</scrollout>
+					<pauseatend>1800</pauseatend>
+					<scrollspeed>40</scrollspeed>
+					<scroll>true</scroll>
+					<font>Font_22</font>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<textcolor>White</textcolor>
+				</control>
+				<control type="progress">
+					<posx>0</posx>
+					<posy>156</posy>
+					<width>236</width>
+					<height>1</height>
+					<info>Player.Progress</info>
+					<texturebg>Progress_Back.png</texturebg>
+					<lefttexture>-</lefttexture>
+					<midtexture>Progress_Bar.png</midtexture>
+					<righttexture>-</righttexture>
+					<overlaytexture>-</overlaytexture>
+				</control>
+				<control type="fadelabel">
+					<posx>0</posx>
+					<posy>160</posy>
+					<width>236</width>
+					<scrollout>false</scrollout>
+					<pauseatend>1800</pauseatend>
+					<scrollspeed>40</scrollspeed>
+					<scroll>true</scroll>
+					<font>Font_Caps_12</font>
+					<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, - ]</label>
+					<textcolor>NowPlayingTime</textcolor>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<visible>![Window.IsActive(home) | stringcompare(Container.ViewMode,$LOCALIZE[50027]) | stringcompare(Container.ViewMode,$LOCALIZE[50029])]</visible>
+			<control type="image">
+				<posx>640</posx>
+				<posy>692</posy>
+				<width>640</width>
+				<height>28</height>
+				<texture>Common/Rss_back.png</texture>
+			</control>
+			<control type="fadelabel">
+				<animation type="WindowOpen">
+					<effect type="slide" start="640,0" end="0,0" time="600" />
+					<effect type="fade" start="0" end="100" time="400" />
+				</animation>
+				<posx>670</posx>
+				<posy>698</posy>
+				<width>600</width>
+				<height>20</height>
+				<font>Font_Slim_14</font>
+				<textcolor>NowPlaying</textcolor>
+				<align>right</align>
+				<label>               $LOCALIZE[50015]: [COLOR White]$INFO[MusicPlayer.Title][/COLOR][COLOR NowPlayingAlbum]$INFO[MusicPlayer.Artist,[COLOR NowPlaying] by [/COLOR]][/COLOR][COLOR White]$INFO[MusicPlayer.Album,[COLOR NowPlaying] from [/COLOR]][/COLOR]</label>
+			</control>
+			<control type="image">
+				<posx>640</posx>
+				<posy>692</posy>
+				<width>640</width>
+				<height>28</height>
+				<texture>Common/Rss_diffuse.png</texture>
+			</control>
+		</control>
+		<include condition="Skin.HasSetting(DebugGrid)">Object_DebugGrid</include>
+	</controls>
+</window>

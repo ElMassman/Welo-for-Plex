@@ -1,0 +1,28 @@
+﻿<includes>
+	<default type="label">
+		<scrollspeed>50</scrollspeed>
+		<scrollsuffix>     -     </scrollsuffix>
+		<selectedcolor>Blue</selectedcolor>
+	</default>
+	<default type="fadelabel">
+		<scrollout>false</scrollout>
+		<pauseatend>1200</pauseatend>
+		<scrollspeed>38</scrollspeed>
+		
+	</default>
+	<default type="button">
+		<pulseonselect>false</pulseonselect>
+	</default>
+	<default type="togglebutton">
+		<pulseonselect>false</pulseonselect>
+	</default>
+	<default type="radiobutton">
+		<pulseonselect>false</pulseonselect>
+	</default>
+	<default type="spincontrolex">
+		<pulseonselect>false</pulseonselect>
+	</default>
+	<default type="spincontrol">
+		<pulseonselect>false</pulseonselect>
+	</default>
+</includes>
