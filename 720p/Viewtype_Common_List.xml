@@ -39,14 +39,14 @@
 					<texture>Views/List/Small_Singles_Back.png</texture>
 				</control>
 				<control type="image">
-					<posx>354</posx>
+					<posx>354</posx><!--Central 250-->
 					<posy>232</posy>
 					<width>802</width>
 					<height>252</height>
 					<texture border="50,10,36,28">Views/List/List_Back.png</texture>
 				</control>
 				<control type="list" id="3000">
-					<posx>408</posx>
+					<posx>408</posx><!--Central 304-->
 					<posy>247</posy>
 					<width>672</width>
 					<height>200</height>

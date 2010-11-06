@@ -29,24 +29,15 @@
 				<onup>300</onup>
 				<ondown>300</ondown>
 				<orientation>horizontal</orientation>
-				<control type="button" id="2">
-					<label>Next</label>
+				<control type="button" id="101">
+					<width min="4" max="200">auto</width>
+					<height>20</height>
+					<aligny>center</aligny>
+					<font>Font_Slim_24</font>
+					<textcolor>Clear</textcolor>
+					<label>Next Viewtype</label>
 					<onclick>Container.NextViewMode</onclick>
 				</control>
-				<control type="button" id="3">
-					<label>-</label>
-				</control>
-				<control type="togglebutton" id="4">
-					<label>&#9660;</label>
-					<altlabel>&#9650;</altlabel>
-				</control>
-				<control type="button" id="5"/>
-				<control type="togglebutton" id="14">
-					<label>16100</label>
-					<altlabel>16101</altlabel>
-				</control>
-				<control type="button" id="8"/>
-				<control type="radiobutton" id="19"/>
 				<control type="togglebutton" id="7000">
 					<onclick>Skin.Setbool(HideTicks)</onclick>
 					<altclick>Skin.Reset(HideTicks)</altclick>
@@ -73,58 +64,10 @@
 				<itemgap>12</itemgap>
 				<align>left</align>
 				<orientation>horizontal</orientation>
-				<control type="label">
-					<width min="4" max="200">auto</width>
-					<height>20</height>
-					<aligny>center</aligny>
-					<font>Font_Slim_24</font>
-					<textcolor>Clear</textcolor>
-					<label>><label>$INFO[Container.FirstTitle]</label></label>
-				<visible>Control.IsVisible(3002) + Container.Content(movies)</visible>
-			</control>
-			<control type="label">
-				<width min="4" max="200">auto</width>
-				<height>20</height>
-				<aligny>center</aligny>
-				<font>Font_Slim_24</font>
-				<textcolor>Clear</textcolor>
-				<label><label>$INFO[Container.FirstTitle]</label>  </label>
-				<visible>Control.IsVisible(3002) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
-			</control>
 			<control type="label">
 				<include>Sub_Titles</include>
-				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(2)">Conditional</animation>
-				<label>$INFO[Control.GetLabel(2)]</label>
-			</control>
-			<control type="label">
-				<include>Sub_Titles</include>
-				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(3)">Conditional</animation>
-				<label>$INFO[Control.GetLabel(3)]</label>
-			</control>
-			<control type="label">
-				<include>Sub_Titles</include>
-				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(4)">Conditional</animation>
-				<label>$INFO[Control.GetLabel(4)]</label>
-			</control>
-			<control type="label">
-				<include>Sub_Titles</include>
-				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(5)">Conditional</animation>
-				<label>$LOCALIZE[50028]: $LOCALIZE[14022]</label>
-			</control>
-			<control type="label">
-				<include>Sub_Titles</include>
-				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(14)">Conditional</animation>
-				<label>$INFO[Control.GetLabel(14)]</label>
-			</control>
-			<control type="label">
-				<include>Sub_Titles</include>
-				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(8)">Conditional</animation>
-				<label>137</label>
-			</control>
-			<control type="label">
-				<include>Sub_Titles</include>
-				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(19)">Conditional</animation>
-				<label>587</label>
+				<animation effect="fade" start="100" end="30" condition="!Controlgroup(600).HasFocus(101)">Conditional</animation>
+				<label>$INFO[Control.GetLabel(101)]</label>
 			</control>
 			<control type="label">
 				<include>Sub_Titles</include>

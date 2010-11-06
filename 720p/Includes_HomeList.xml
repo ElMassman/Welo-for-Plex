@@ -1,4 +1,4 @@
-﻿<includes>
+<includes>
 
 	<include name="HomeVertical">
 		<posx>30</posx>
@@ -248,7 +248,7 @@
 				<effect type="zoom" center="auto" tween="back" easing="out" time="400" start="80" end="100" />
 				<effect type="fade" start="60" end="100" time="200" />
 			</animation>
-			<texture>$INFO[Container(300).ListItem.ActualIcon]</texture>
+			<texture>$INFO[Container(300).ListItem.Icon]</texture>
 		</control>
 
 		<control type="label">

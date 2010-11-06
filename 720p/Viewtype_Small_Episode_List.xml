@@ -105,7 +105,7 @@
 							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
 							<posx>514</posx>
 							<include>List_StarRatings</include>
-							<texture>$INFO[ListItem.Rating,Star_Ratings/,.png]</texture>
+							<texture>$INFO[ListItem.StarRating]</texture>
 							<animation effect="slide" start="0,0" end="82" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
 							<visible>!Skin.HasSetting(HideStars)</visible>
 						</control>
@@ -113,7 +113,7 @@
 							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
 							<posx>514</posx>
 							<include>List_StarRatings</include>
-							<texture>Star_Ratings/NA.png</texture>
+							<texture>rating0.png</texture>
 							<animation effect="slide" start="0,0" end="82" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
 							<visible>IsEmpty(ListItem.Rating) + !Skin.HasSetting(HideStars)</visible>
 						</control>
@@ -126,7 +126,7 @@
 							<aligny>center</aligny>
 							<font>Font_NoCaps_20</font>
 							<textcolor>Black</textcolor>
-							<label>$INFO[ListItem.Duration,, mins]</label>
+							<label>$INFO[ListItem.Duration]</label>
 							<visible>!Skin.HasSetting(HideRuntimes)</visible>
 						</control>
 					</itemlayout>
@@ -204,7 +204,7 @@
 						<control type="image">
 							<posx>514</posx>
 							<include>List_StarRatings</include>
-							<texture>$INFO[ListItem.Rating,Star_Ratings/,.png]</texture>
+							<texture>$INFO[ListItem.StarRating]</texture>
 							<animation effect="slide" start="0,0" end="82" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
 							<visible>!Skin.HasSetting(HideStars)</visible>
 						</control>
@@ -212,7 +212,7 @@
 							<animation effect="fade" start="60" end="60" condition="true">Conditional</animation>
 							<posx>514</posx>
 							<include>List_StarRatings</include>
-							<texture>Star_Ratings/NA.png</texture>
+							<texture>rating0.png</texture>
 							<animation effect="slide" start="0,0" end="82" condition="IsEmpty(ListItem.Duration) | Skin.HasSetting(HideRuntimes)">Conditional</animation>
 							<visible>IsEmpty(ListItem.Rating) + !Skin.HasSetting(HideStars)</visible>
 						</control>
@@ -225,7 +225,7 @@
 							<aligny>center</aligny>
 							<font>Font_NoCaps_20</font>
 							<textcolor>White</textcolor>
-							<label>$INFO[ListItem.Duration,, mins]</label>
+							<label>$INFO[ListItem.Duration]</label>
 							<visible>!Skin.HasSetting(HideRuntimes)</visible>
 						</control>
 					</focusedlayout>
