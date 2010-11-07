@@ -33,6 +33,14 @@
 				<height>71</height>
 				<texture>OSD/OSD_back.png</texture>
 			</control>
+	
+			<control type="image">
+				<posx>1057</posx>
+				<posy>448</posy>
+				<width>177</width>
+				<height>252</height>
+				<texture>OSD/poster_shadow.png</texture>
+			</control>
 		
 			<control type="image">
 				<posx>1067</posx>
@@ -47,7 +55,7 @@
 				<posy>458</posy>
 				<width>157</width>
 				<height>232</height>
-				<texture>poster_overlay.png</texture>
+				<texture>OSD/poster_overlay.png</texture>
 			</control>
 
 			<!--control type="image">
@@ -60,6 +68,79 @@
 			</control-->
 
 				<include>OSD_Progress_Bar</include>
+
+			<control type="grouplist" id="2002">
+				<posx>99</posx>
+				<posy>664</posy>
+				<width>400</width>
+				<itemgap>4</itemgap>
+				<orientation>horizontal</orientation>
+				<onleft>7</onleft>
+				<onright>15</onright>
+				<onup>411</onup>
+				<ondown>411</ondown>
+				<control type="button" id="11">
+					<description>Playlists</description>
+					<height>22</height>
+					<width>31</width>
+					<texturefocus>OSD/buttons/buttons_selected/playlist_selected.png</texturefocus>
+					<texturenofocus>OSD/buttons/playlist.png</texturenofocus>
+					<onclick>ActivateWindow(videoplaylist)</onclick>
+				</control>
+				<control type="button" id="9">
+					<description>Previous</description>
+					<height>22</height>
+					<width>31</width>
+					<texturefocus>OSD/buttons/buttons_selected/left_selected.png</texturefocus>
+					<texturenofocus>OSD/buttons/left.png</texturenofocus>
+					<onclick>PlayerControl(Previous)</onclick>
+				</control>
+				<control type="button" id="3">
+					<description>Rewind</description>
+					<height>22</height>
+					<width>31</width>
+					<texturefocus>OSD/buttons/buttons_selected/speed_left_selected.png</texturefocus>
+					<texturenofocus>OSD/buttons/speed_left.png</texturenofocus>
+					<onclick>PlayerControl(rewind)</onclick>
+				</control>
+				<!--control type="button" id="5">
+					<description>Stop</description>
+					<height>22</height>
+					<width>31</width>
+					<texturefocus>OSD/buttons/buttons_selected/stop_selected.png</texturefocus>
+					<texturenofocus>OSD/buttons/stop.png</texturenofocus>
+					<onclick>PlayerControl(stop)</onclick>
+				</control-->
+				<control type="togglebutton" id="4">
+					<description>Play</description>
+					<height>22</height>
+					<width>37</width>
+					<texturefocus>OSD/buttons/buttons_selected/play_selected.png</texturefocus>
+					<texturenofocus>OSD/buttons/play.png</texturenofocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<alttexturefocus>OSD/buttons/buttons_selected/pause_selected.png</alttexturefocus>
+					<alttexturenofocus>OSD/buttons/pause.png</alttexturenofocus>
+					<disabledcolor>-</disabledcolor>
+					<colordiffuse>-</colordiffuse>
+					<onclick>PlayerControl(play)</onclick>
+				</control>
+				<control type="button" id="6">
+					<description>Forward</description>
+					<height>22</height>
+					<width>31</width>
+					<texturefocus>OSD/buttons/buttons_selected/speed_right_selected.png</texturefocus>
+					<texturenofocus>OSD/buttons/speed_right.png</texturenofocus>
+					<onclick>PlayerControl(forward)</onclick>
+				</control>
+				<control type="button" id="10">
+					<description>Next</description>
+					<height>22</height>
+					<width>31</width>
+					<texturefocus>OSD/buttons/buttons_selected/right_selected.png</texturefocus>
+					<texturenofocus>OSD/buttons/right.png</texturenofocus>
+					<onclick>PlayerControl(Next)</onclick>
+				</control>
+			</control>
 
 			<control type="label">
 				<posx>895</posx>
@@ -113,7 +194,7 @@
 				<label>[B]$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[VideoPlayer.Title][/B]</label>
 			</control>
 
-			<control type="fadelabel">
+			<!--control type="fadelabel">
 				<posx>385</posx>
 				<posy>656</posy>
 				<width>880</width>
@@ -128,7 +209,7 @@
 				<scroll>true</scroll>
 				<label>$INFO[VideoPlayer.Title]</label>
 				<visible>IsEmpty(VideoPlayer.TVShowTitle) | StringCompare(VideoPlayer.TVShowTitle,VideoPlayer.Title)</visible>
-			</control>
+			</control-->
 
 			<!--control type="label">
 				<posx>1250</posx>
@@ -147,121 +228,7 @@
 
 			<visible>!Window.IsVisible(videobookmarks)</visible>
 
-			<include>Animation_SlideUpFadeOut</include>
-
-
-			<control type="grouplist" id="2001">
-				<posx>20</posx>
-				<posy>668</posy>
-				<width>400</width>
-				<itemgap>-10</itemgap>
-				<orientation>horizontal</orientation>
-				<onleft>800</onleft>
-				<onright>9</onright>
-				<onup>411</onup>
-				<ondown>411</ondown>
-				<control type="button" id="11">
-					<description>Playlists</description>
-					<height>52</height>
-					<width>52</width>
-					<texturefocus>osd/osd_button_playlist_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_playlist_nf.png</texturenofocus>
-					<onclick>ActivateWindow(videoplaylist)</onclick>
-				</control>
-				<control type="button" id="12">
-					<description>Bookmarks</description>
-					<height>52</height>
-					<width>52</width>
-					<texturefocus>osd/osd_button_book_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_book_nf.png</texturenofocus>
-					<onclick>ActivateWindow(videobookmarks)</onclick>
-				</control>
-				<control type="button" id="14">
-					<description>OSD Subtitles</description>
-					<height>52</height>
-					<width>52</width>
-					<texturefocus>osd/osd_button_sub_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_sub_nf.png</texturenofocus>
-					<onclick>Close</onclick>
-					<onclick>XBMC.RunScript(script.xbmc.subtitles)</onclick>
-				</control>
-				<control type="button" id="7">
-					<description>DVD MENU</description>
-					<height>52</height>
-					<width>52</width>
-					<texturefocus>osd/osd_button_dvd_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_dvd_nf.png</texturenofocus>
-					<onclick>PlayerControl(ShowVideoMenu)</onclick>
-					<visible>VideoPlayer.HasMenu</visible>
-				</control>
-			</control>
-
-			<control type="grouplist" id="2002">
-				<posx>460</posx>
-				<posy>660</posy>
-				<width>400</width>
-				<itemgap>-10</itemgap>
-				<orientation>horizontal</orientation>
-				<onleft>7</onleft>
-				<onright>15</onright>
-				<onup>411</onup>
-				<ondown>411</ondown>
-				<control type="button" id="9">
-					<description>Previous</description>
-					<height>68</height>
-					<width>68</width>
-					<texturefocus>osd/osd_button_prev_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_prev_nf.png</texturenofocus>
-					<onclick>PlayerControl(Previous)</onclick>
-				</control>
-				<control type="button" id="3">
-					<description>Rewind</description>
-					<height>68</height>
-					<width>68</width>
-					<texturefocus>osd/osd_button_rew_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_rew_nf.png</texturenofocus>
-					<onclick>PlayerControl(rewind)</onclick>
-				</control>
-				<control type="button" id="5">
-					<description>Stop</description>
-					<height>68</height>
-					<width>68</width>
-					<texturefocus>osd/osd_button_stop_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_stop_nf.png</texturenofocus>
-					<onclick>PlayerControl(stop)</onclick>
-				</control>
-				<control type="togglebutton" id="4">
-					<description>Play</description>
-					<height>68</height>
-					<width>68</width>
-					<texturefocus>osd/osd_button_pause_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_pause_nf.png</texturenofocus>
-					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-					<alttexturefocus>osd/osd_button_play_fo.png</alttexturefocus>
-					<alttexturenofocus>osd/osd_button_play_nf.png</alttexturenofocus>
-					<disabledcolor>-</disabledcolor>
-					<colordiffuse>-</colordiffuse>
-					<onclick>PlayerControl(play)</onclick>
-				</control>
-				<control type="button" id="6">
-					<description>Forward</description>
-					<height>68</height>
-					<width>68</width>
-					<texturefocus>osd/osd_button_ff_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_ff_nf.png</texturenofocus>
-					<onclick>PlayerControl(forward)</onclick>
-				</control>
-				<control type="button" id="10">
-					<description>Next</description>
-					<height>68</height>
-					<width>68</width>
-					<texturefocus>osd/osd_button_next_fo.png</texturefocus>
-					<texturenofocus>osd/osd_button_next_nf.png</texturenofocus>
-					<onclick>PlayerControl(Next)</onclick>
-				</control>
-			</control>
-
-			<control type="grouplist" id="2003">
+			<!--control type="grouplist" id="2003">
 				<posx>1126</posx>
 				<posy>668</posy>
 				<width>400</width>
@@ -299,7 +266,7 @@
 					<texturenofocus>osd/osd_button_audio_nf.png</texturenofocus>
 					<onclick>ActivateWindow(osdaudiosettings)</onclick>
 				</control>
-			</control>
+			</control-->
 
 		</control>
 
