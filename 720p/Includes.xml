@@ -1956,26 +1956,35 @@
 	</include>
 
 	<include name="OSD_Progress_Bar">
-		<control type="image">
-			<posx>0</posx>
-			<posy>640</posy>
-			<width>1280</width>			
-			<height>80</height>
-			<texture>osd/osdback.png</texture>		
-		</control>
 
 		<control type="progress" id="23">
 			<description>Progressbar</description>
-			<posx>0</posx>
-			<posy>580</posy>
-			<width>1280</width>
-			<height>80</height>
+			<posx>375</posx>
+			<posy>655</posy>
+			<width>530</width>			
+			<height>42</height>
 			<info>Player.Progress</info>
-			<texturebg>-</texturebg>
+			<texturebg>OSD/progressbar_overlay.png</texturebg>
 			<lefttexture>-</lefttexture>
-			<midtexture>osd/osdmid.png</midtexture>
+			<midtexture border="5,0,0,0">OSD/progressbar_fill.png</midtexture>
 			<righttexture>-</righttexture>
 			<overlaytexture>-</overlaytexture>
+		</control>
+
+		<control type="image">
+			<posx>375</posx>
+			<posy>654</posy>
+			<width>530</width>			
+			<height>44</height>
+			<texture>OSD/progressbar_overlay.png</texture>		
+		</control>
+
+		<control type="image">
+			<posx>375</posx>
+			<posy>654</posy>
+			<width>530</width>			
+			<height>44</height>
+			<texture>OSD/progressbar_overlay_top_layer.png</texture>		
 		</control>
 	</include>
 

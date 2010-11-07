@@ -1,4 +1,4 @@
-﻿<window id="2901">
+<window id="2901">
 	<defaultcontrol always="true">410</defaultcontrol>
 
 	<controls>
@@ -14,7 +14,7 @@
 
 		<control type="group">
 
-			<visible>![Window.IsVisible(sliderdialog) | Window.IsVisible(videobookmarks)]</visible>
+			<visible>!Window.IsVisible(videobookmarks)</visible>
 
 			<include>Animation_SlideDownFadeOut</include>
 
@@ -22,66 +22,104 @@
 				<posx>0</posx>
 				<posy>0</posy>
 				<width>1280</width>
-				<height>60</height>
-				<texture>osd/osdback.png</texture>
+				<height>720</height>
+				<texture>screen_background_overlay.png</texture>
 			</control>
 
-			<control type="group">
-				<posx>30</posx>
-				<posy>10</posy>
-				<control type="label">
-					<width>150</width>
-					<height>40</height>
-					<aligny>center</aligny>
-					<font>Font_OSDTime</font>
-					<textcolor>OSDTime</textcolor>
-					<label>$INFO[System.Time(hh:mm)] $LOCALIZE[40155]</label>
-					<visible>substring(system.time,AM,right)</visible>
-				</control>
-				<control type="label">
-					<width>150</width>
-					<height>40</height>
-					<aligny>center</aligny>
-					<font>Font_OSDTime</font>
-					<textcolor>OSDTime</textcolor>
-					<label>$INFO[System.Time(hh:mm)] $LOCALIZE[40156]</label>
-					<visible>substring(system.time,PM,right)</visible>
-				</control>
-				<control type="label">
-					<width>150</width>
-					<height>40</height>
-					<aligny>center</aligny>
-					<font>Font_OSDTime</font>
-					<textcolor>OSDTime</textcolor>
-					<info>System.Time(hh:mm)</info>
-					<visible>![substring(system.time,PM,right) | substring(system.time,AM,right)]</visible>
-				</control>
+			<control type="image">
+				<posx>43</posx>
+				<posy>632</posy>
+				<width>1195</width>
+				<height>71</height>
+				<texture>OSD/OSD_back.png</texture>
 			</control>
+		
+			<control type="image">
+				<posx>1067</posx>
+				<posy>458</posy>
+				<width>157</width>
+				<height>232</height>
+				<texture>$INFO[VideoPlayer.Cover]</texture>
+			</control>
+
+			<control type="image">
+				<posx>1067</posx>
+				<posy>458</posy>
+				<width>157</width>
+				<height>232</height>
+				<texture>poster_overlay.png</texture>
+			</control>
+
+			<!--control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1280</width>
+				<height>720</height>
+				<colordiffuse>88ffffff</colordiffuse>
+				<texture>OSD/OSD_screen.png</texture>
+			</control-->
+
+				<include>OSD_Progress_Bar</include>
+
+			<control type="label">
+				<posx>895</posx>
+				<posy>655</posy>
+				<width>150</width>
+				<height>40</height>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>Font_Caps_14</font>
+				<textcolor>ff25b5ff</textcolor>
+				<label>$INFO[Player.Time] - $INFO[Player.Duration]</label>
+				<textcolor>OSDPlayingDuration</textcolor>
+			</control>
+
+				<control type="label">	
+					<posx>380</posx>
+					<posy>637</posy>
+					<width>150</width>
+					<height>12</height>
+					<aligny>center</aligny>
+					<font>Font_Caps_12</font>
+					<textcolor>OSDTime</textcolor>
+					<label>$INFO[System.Date]</label>
+				</control>
+
+				<control type="label">	
+					<posx>900</posx>
+					<posy>637</posy>
+					<width>150</width>
+					<height>12</height>
+					<align>right</align>
+					<aligny>center</aligny>
+					<font>Font_Caps_12</font>
+					<textcolor>OSDTime</textcolor>
+					<label>$INFO[System.Time(hh:mm)]</label>
+				</control>
 
 			<control type="fadelabel">
-				<posx>200</posx>
-				<posy>10</posy>
+				<posx>385</posx>
+				<posy>656</posy>
 				<width>880</width>
 				<height>40</height>
-				<font>Font_OSDTitle</font>
-				<textcolor>OSDTitle</textcolor>
+				<font>Font_Big_Caps_18</font>
+				<textcolor>ffffffff</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
 				<scrollout>false</scrollout>
 				<pauseatend>3800</pauseatend>
 				<scrollspeed>40</scrollspeed>
 				<scroll>true</scroll>
-				<label>$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[VideoPlayer.Title]</label>
-				<visible>!StringCompare(VideoPlayer.TVShowTitle,VideoPlayer.Title)</visible>
+				<label>[B]$INFO[VideoPlayer.TVShowTitle,, - ]$INFO[VideoPlayer.Title][/B]</label>
 			</control>
 
 			<control type="fadelabel">
-				<posx>200</posx>
-				<posy>10</posy>
+				<posx>385</posx>
+				<posy>656</posy>
 				<width>880</width>
 				<height>40</height>
-				<font>Font_OSDTitle</font>
-				<textcolor>OSDTitle</textcolor>
+				<font>Font_Big_Caps_18</font>
+				<textcolor>ffffffff</textcolor>
 				<align>center</align>
 				<aligny>center</aligny>
 				<scrollout>false</scrollout>
@@ -92,7 +130,7 @@
 				<visible>IsEmpty(VideoPlayer.TVShowTitle) | StringCompare(VideoPlayer.TVShowTitle,VideoPlayer.Title)</visible>
 			</control>
 
-			<control type="label">
+			<!--control type="label">
 				<posx>1250</posx>
 				<posy>10</posy>
 				<width>150</width>
@@ -102,42 +140,15 @@
 				<font>Font_OSDTime</font>
 				<textcolor>OSDTime</textcolor>
 				<label>$INFO[Player.FinishTime]</label>
-			</control>
+			</control-->
 		</control>
 
 		<control type="group">
 
-			<visible>![Window.IsVisible(sliderdialog) | Window.IsVisible(videobookmarks)]</visible>
+			<visible>!Window.IsVisible(videobookmarks)</visible>
 
 			<include>Animation_SlideUpFadeOut</include>
 
-			<include>OSD_Progress_Bar</include>
-			<include>OSD_Player_Details</include>
-
-			<control type="label">
-				<posx>30</posx>
-				<posy>640</posy>
-				<width>150</width>
-				<height>40</height>
-				<aligny>center</aligny>
-				<font>Font_OSDProgress</font>
-				<textcolor>OSDProgress</textcolor>
-				<label>$INFO[Player.Time]</label>
-				<textcolor>OSDPlayingDuration</textcolor>
-			</control>
-
-			<control type="label">
-				<posx>1250</posx>
-				<posy>640</posy>
-				<width>150</width>
-				<height>40</height>
-				<aligny>center</aligny>
-				<align>right</align>
-				<font>Font_OSDProgress</font>
-				<textcolor>OSDProgress</textcolor>
-				<label>$INFO[Player.Duration]</label>
-				<textcolor>OSDPlayingDuration</textcolor>
-			</control>
 
 			<control type="grouplist" id="2001">
 				<posx>20</posx>
@@ -278,6 +289,7 @@
 					<texturenofocus>osd/osd_button_settings_nf.png</texturenofocus>
 					<onclick>ActivateWindow(osdvideosettings)</onclick>
 				</control>
+				
 				<control type="button" id="800">
 					<description>audio Settings</description>
 					<height>52</height>
@@ -288,6 +300,7 @@
 					<onclick>ActivateWindow(osdaudiosettings)</onclick>
 				</control>
 			</control>
+
 		</control>
 
 		<include condition="Skin.HasSetting(DebugGrid)">Object_DebugGrid</include>
